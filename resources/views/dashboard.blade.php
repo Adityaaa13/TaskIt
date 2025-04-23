@@ -27,19 +27,30 @@
     </div>
 
     <!-- Status Chart -->
-    <!-- Status Chart -->
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card shadow-sm border-0 p-4">
-            <h5 class="text-center mb-4">Task Status Distribution</h5>
-            <div class="d-flex justify-content-center">
-                <div class="chart-container" style="position: relative; height: 300px; width: 300px;">
-                    <canvas id="taskStatusChart"></canvas>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 p-4">
+                <h5 class="text-center mb-4">Task Status Distribution</h5>
+                <div class="d-flex justify-content-center">
+                    <div class="chart-container" style="position: relative; height: 300px; width: 300px;">
+                        <canvas id="taskStatusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Priority Chart -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 p-4">
+                <h5 class="text-center mb-4">Task Priority Distribution</h5>
+                <div class="d-flex justify-content-center">
+                    <div class="chart-container" style="position: relative; height: 300px; width: 300px;">
+                        <canvas id="taskPriorityChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
 
@@ -48,7 +59,9 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const statusData = @json($taskStatus);
+        const priorityData = @json($taskPriority);
 
+        // Task Status Chart
         new Chart(document.getElementById('taskStatusChart'), {
             type: 'pie',
             data: {
@@ -57,6 +70,32 @@
                     label: 'Tasks',
                     data: Object.values(statusData),
                     backgroundColor: ['#f39c12', '#3498db', '#2ecc71', '#e74c3c'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Task Priority Chart
+        new Chart(document.getElementById('taskPriorityChart'), {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(priorityData),
+                datasets: [{
+                    label: 'Tasks by Priority',
+                    data: Object.values(priorityData),
+                    backgroundColor: ['#e74c3c', '#f1c40f', '#3498db'],
                 }]
             },
             options: {
