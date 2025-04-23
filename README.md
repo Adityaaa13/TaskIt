@@ -20,18 +20,20 @@ This is a simple and beginner-friendly **Task Management System** built with Lar
 - Tasks are color-coded based on priority:
   - **Urgent**: Red
   - **Important**: Yellow
-  - **Normal**: Gray
+  - **Normal**: Gray.
 - Click on a task to edit it.
 - Click on a date to create a new task for that date.
 
 ### 📊 Interactive Reporting
 - **Pie Chart**: Task status distribution.
+- **Doughnut Chart**: Task priority distribution.
 - **Bar Chart**: Hours logged per task.
 - **Line Chart**: Daily work log.
 
 ### 📈 Dashboard Overview
-- Summary of total tasks and hours worked.
-- Pie chart showing task statuses.
+- Summary of total tasks, total hours worked, and pending tasks.
+- **Task Status Distribution Chart**: Visualize the proportion of tasks by their status.
+- **Task Priority Distribution Chart**: Analyze tasks based on their priority levels.
 
 ### 📥 Export Options
 - Export timesheets to Excel using **Laravel Excel**.
@@ -39,17 +41,24 @@ This is a simple and beginner-friendly **Task Management System** built with Lar
 ### 💡 Clean UI
 - Built with **Bootstrap 5** for a responsive and modern design.
 
-
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer       | Technology                |
 |-------------|---------------------------|
-| **Backend** | Laravel 9                 |
+| **Backend** | Laravel 10                |
 | **Frontend**| Blade + Bootstrap 5       |
 | **Charts**  | Chart.js                  |
 | **Calendar**| FullCalendar.js           |
 | **Export**  | Maatwebsite Laravel Excel |
 | **Database**| MySQL                     |
 
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/taskit.git
+   cd taskit
